@@ -3,7 +3,7 @@ var up = '\
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>\
 		<meta charset="utf-8">\
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">\
-		<link rel="icon" type="image/x-icon" href="../files_basic/magic_square2.ico">\
+		<link rel="icon" type="image/x-icon" href="../files_basic/magic_square_1.ico">\
 		<link rel="stylesheet" type="text/css" href="../style.css">\
 		<link rel="stylesheet" type="text/css" href="../style_cont.css">\
 		<script type="text/javascript" src="../script.js"></script>\
@@ -25,8 +25,8 @@ var up = '\
 				<div class="cont_main_l">\
 					<div id="cont_main_l_img">\
 						<a href="../index.html">\
-							<img id="cont_main_l_img1" src="../files_basic/magic_square.png"  onmouseenter="img_change()">\
-							<img id="cont_main_l_img2" src="../files_basic/magic_square2.png"  onmouseleave="img_change2()">\
+							<img id="cont_main_l_img1" src="../files_basic/magic_square_0.png"  onmouseenter="img_change()">\
+							<img id="cont_main_l_img2" src="../files_basic/magic_square_1.png"  onmouseleave="img_change2()">\
 						</a>\
 					</div>\
 \
