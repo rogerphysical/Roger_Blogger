@@ -11,7 +11,7 @@ var up = '\
 	</head>\
 	<body onkeydown="key_point(event)">\
 		<div id="stars">\
-			<div id="star_space" class="star" style="left: 33%; top: 78%; background-image: unset;" ondragover="dragover(event)" ondrop="drop(event)"></div>\
+			<div id="star_space" ondragover="dragover(event)" ondrop="drop(event)"></div>\
 		</div>\
 		\
 		<div id="cont">\

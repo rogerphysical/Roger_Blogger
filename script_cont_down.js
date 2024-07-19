@@ -10,7 +10,7 @@ var down = '\
 \
 		<div id="running" class="running">\
 			<div id="radies" class="radies"></div>\
-			<div id="star_point" class="star" draggable="true" ondragstart="dragstart(event)"></div>\
+			<div id="star_point" draggable="true" ondragstart="dragstart(event)"></div>\
 		</div>\
 \
 		<div id="tool">\

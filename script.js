@@ -179,18 +179,19 @@ function ball_other3(th) {
 // 觀測星空
 function star_sky() {
 	if (stars_wait === false) {
-		star_shine();
+		stars_wait = true;
 		one_talk("願為鳳凰!");
 		// console.log(stars_id);
 
+		lock_bg_move(true);
+		setTimeout(()=> shooting_star(), 1000);
 	}
 	else {
 		one_talk("急，則前功盡棄~~~~");
 	}
 }
 // 星光閃爍
-function star_shine() {
-	stars_wait = true;
+function shooting_star() {
 	const random_value = Math.random();
 
 	// 78
@@ -217,6 +218,7 @@ function star_shine() {
 
 	setTimeout(()=> par_node.removeChild(shooting_star), 2000);
 	setTimeout(()=> stars_wait = false, 2400);
+	setTimeout(()=> lock_bg_move(false), 2400);
 }
 
 // 對話
@@ -291,6 +293,8 @@ function lab_change() {
 function dragstart(ev) {
 	ev.dataTransfer.setData("text/plain", ev.target.id);
 	ev.dropEffect = "move";
+
+	lock_bg_move(true);
 }
 function dragover(ev) {
 	ev.preventDefault();
@@ -302,7 +306,9 @@ function drop(ev) {
 	var choise = document.getElementById(data);
 	ev.target.appendChild(choise);
 
-	// 未知原因(清除函數)(以解決、不用了)
+	stars_wait = true;
+
+	// 未知原因(清除函數)(以解決)
 	// console.log(choise);
 	// choise.ondragstart = ()=> {};
 	// choise.draggable = "false";
@@ -311,4 +317,43 @@ function drop(ev) {
 	lab_change();
 }
 
+// background move x
+$(function() {
+	var bg_move = $('#stars');
+	var box_center = {
+		x: bg_move.outerWidth()/2,
+		// y: bg_move.outerHeight()/2
+	};
+	var bg_pos = 50;
+		
+	$('body').mousemove(function(e) {
+		var x = e.clientX-box_center.x;
+		// var y = e.clientY-box_center.y;
+		// console.log(x);
+		// console.log(y);
+		
+		var moveX = bg_pos+(x/20);
+		// var moveY = bg_pos+(y/100);
 
+		// bg_move.css('background-position', moveX+'% '+moveY+'%');
+		bg_move.css('background-position', moveX+'% 50%');
+	})
+	.mouseenter(function() {
+		if (stars_wait === false) {
+			bg_move.animate({backgroundSize: '120%'}, 100);
+		};
+	})
+	.mouseleave(function() {
+		if (stars_wait === false) {
+			bg_move.animate({backgroundSize: '100%'}, 100);
+		};
+	});
+});
+function lock_bg_move (mode) {
+	if (mode) {
+		$('#stars').animate({backgroundSize: '100%'}, 400);
+	}
+	else {
+		$('#stars').animate({backgroundSize: '120%'}, 400);
+	}
+}
